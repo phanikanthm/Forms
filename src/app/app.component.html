@@ -1,0 +1,36 @@
+  
+
+<form #form="ngForm" (ngSubmit)="login(form)">
+
+  Enter Username:<input type="text" name="username"
+  ngModel 
+  #user="ngModel"
+  required 
+  minlength="5" 
+  maxlength="10">
+
+  <div *ngIf="user.touched && user.invalid">
+    <div *ngIf="user.errors.required">Username Required</div>
+    <div *ngIf="user.errors.minlength">Username Should be min 5</div>
+  </div>
+
+
+  <br><br>
+  Enter Password: <input type="password" 
+  name="password"
+  ngModel
+  #pass="ngModel"
+  required
+  minlength="5"
+  maxlength="10">
+
+  <div *ngIf="pass.touched && pass.invalid">
+    <div *ngIf="pass.errors.required">Password Required</div>
+    <div *ngIf="pass.errors.minlength">Password Should be min 5</div>
+  </div>
+  
+  <br><br>
+  <button [disabled]="form.invalid" ></button>>login</button>
+  
+</form>
+
